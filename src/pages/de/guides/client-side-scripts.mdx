@@ -20,3 +20,35 @@ In diesem Beispiel wird das hinzufügen der `<Hello />`-Komponente eine Nachrich
   console.log('Willkommen, Browser-Konsole!');
 </script>
 ```
+
+### Script-Bundle-Erstellung
+
+Standardmäßig werden `<script>`-Tags von Astro bearbeitet.
+
+- Jeder Import wird dem Bundle hinzugefügt, was es dir erlaubt, lokale Dateien oder Node-Module zu importieren.
+- Das bearbeitete Skript wird in den `<head>`-Bereich der Seite mit [`type="module"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) eingebunden.
+- TypeScript wird vollständig unterstützt, inklusive dem importieren von TypeScript-Dateien.
+- Wenn deine Komponente auf einer Seite mehrfach verwendet wird, wird das Skript nur einmal eingebunden.
+
+```astro title="src/components/Example.astro"
+<script>
+  // Bearbeitet! Gebündelt! TypeScript-Unterstützung!
+  // Das Importieren von lokalen Skripten und Node-Modulen funktioniert.
+</script>
+```
+Um zu verhindern, dass das Skript im Bundle landet, kannst Du die `is:inline`-Direktive verwenden.
+
+```astro title="src/components/InlineScript.astro" "is:inline"
+<script is:inline>
+  // Wird genauso wie geschrieben ins HTML gerendert!
+  // Lokale Imports werden nicht aufgelöst und funktionieren nicht.
+  // Wenn es in einer Komponente verwendet wird, wird es jedesmal bei Nutzung der Komponente ausgegeben.
+</script>
+```
+
+:::note
+Das hinzufügen von `type="module"` oder irgendeinem anderen Attribut außer `src` zu einem `<script>`-Tag wird Astros Verhalten zur Bündelung aussschalten und das Tag wird behandelt, als wäre die `is:inline`-Direktive gesetzt.
+:::
+
+
+📚 Für mehr Informationen über die verfügbaren Direktiven bei `<script>`-Tags sieh in der [Direktiven-Referenz](/en/reference/directives-reference/#script--style-directives) nach.

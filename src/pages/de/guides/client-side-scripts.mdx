@@ -2,7 +2,7 @@
 layout: ~/layouts/MainLayout.astro
 title: Skripte und Behandlung 
 description: >-
-  Wie man mit Astro-Komponenten Interaktivität im Browser hinzufügen kann.
+  Wie man Astro-Komponenten client-seitige Interaktivität mit nativen Browser-JavaScript-APIs hinzufügen kann.
 ---
 
 Du kannst deinen Astro-Komponenten mittels Standard-HTML `script`-Tags auch ohne ein [UI-Framework](/de/core-concepts/framework-components/) wie React, Svelte, Vue etc. Interaktivität hinzufügen. Das erlaubt es dir, JavaScript, welches im Browser ausgeführt wird zu senden und Funkionalität zu deinen Astro-Komponenten hinzuzufügen.
@@ -45,7 +45,6 @@ Um zu verhindern, dass das Skript im Bundle landet, kannst Du die `is:inline`-Di
   // Wenn es in einer Komponente verwendet wird, wird es jedesmal bei Nutzung der Komponente ausgegeben.
 </script>
 ```
-
 :::note
 Das hinzufügen von `type="module"` oder irgendeinem anderen Attribut außer `src` zu einem `<script>`-Tag wird Astros Verhalten zur Bündelung aussschalten und das Tag wird behandelt, als wäre die `is:inline`-Direktive gesetzt.
 :::

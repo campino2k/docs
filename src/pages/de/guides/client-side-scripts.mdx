@@ -1,0 +1,22 @@
+---
+layout: ~/layouts/MainLayout.astro
+title: Skripte und Behandlung 
+description: >-
+  Wie man mit Astro-Komponenten Interaktivität im Browser hinzufügen kann.
+---
+
+Du kannst deinen Astro-Komponenten mittels Standard-HTML `script`-Tags auch ohne ein [UI-Framework](/de/core-concepts/framework-components/) wie React, Svelte, Vue etc. Interaktivität hinzufügen. Das erlaubt es dir, JavaScript, welches im Browser ausgeführt wird zu senden und Funkionalität zu deinen Astro-Komponenten hinzuzufügen.
+
+## `<script>` in Astro verwenden
+
+Du kannst ein (oder mehrere) `<script>`-Tags in `.astro`-Dateien hinzufügen.
+
+In diesem Beispiel wird das hinzufügen der `<Hello />`-Komponente eine Nachricht auf der Browser-Konsole ausgeben:
+
+```astro title="src/components/Hello.astro"
+<h1>Hallo Welt!</h1>
+
+<script>
+  console.log('Willkommen, Browser-Konsole!');
+</script>
+```

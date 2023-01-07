@@ -44,6 +44,7 @@ export default NavDictionary({
 	'guides/server-side-rendering': 'Serverseitiges Rendern (SSR)',
 	'guides/typescript': 'TypeScript',
 	'core-concepts/framework-components': 'UI-Frameworks',
+	'guides/client-side-scripts': 'Skripte & Events',
 
 	// Reference
 	reference: 'Referenz',
